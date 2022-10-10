@@ -1,9 +1,9 @@
 import React from 'react'
-import { View,Text,Button } from 'react-native'
+import { View,Text,Button,StyleSheet } from 'react-native'
 
 const MainForm = ()=> {
   return (
-    <View>
+    <View style={styles.mainFormContainer}>
         <Text>This is the Form</Text>
         <Text>Here goes an input </Text> 
         <Text>... and next to it there's a GO Button  </Text>
@@ -11,5 +11,13 @@ const MainForm = ()=> {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  mainFormContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default MainForm
