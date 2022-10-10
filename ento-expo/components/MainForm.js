@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View,Text,Button,StyleSheet } from 'react-native'
 
 const MainForm = ()=> {
+
+  const [mlResults,setMlResults] = useState('No Results')
+
   return (
     <View style={styles.mainFormContainer}>
         <Text>This is the Form</Text>
