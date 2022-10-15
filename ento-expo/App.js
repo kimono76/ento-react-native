@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import MainForm from './components/MainForm'
+import Heading from "./components/Heading";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>ENTO</Text>
-      <Text>Welcome to the ML powered Entity Finder</Text>
+      <Heading appName='ENTO' />
       <MainForm/>
       {/* <StatusBar style="auto" /> */}
     </View>

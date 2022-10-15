@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View,Text,Button,StyleSheet, TouchableOpacity } from 'react-native'
+import { View,Text,StyleSheet, TouchableOpacity } from 'react-native'
 
 let resultText = ``
 
@@ -21,7 +21,11 @@ const MainForm = ()=> {
           style={styles.button}
           onPress={()=>{setMlResults(getResultStack())}}  
         >
-          <Text style={styles.buttonText}>GO</Text>
+          <Text 
+            style={styles.buttonText}
+          >
+            GO
+          </Text>
         </TouchableOpacity>
         <Text>{mlResults}</Text>
     </View>
