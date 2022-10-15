@@ -1,7 +1,15 @@
 import React, {useState} from 'react'
 import { View,Text,Button,StyleSheet, TouchableOpacity } from 'react-native'
 
+let resultText = ``
+
 const MainForm = ()=> {
+
+
+  const getResultStack = ()=>{
+    resultText += `\n This is the result text \n`
+    return resultText
+  }
 
   const [mlResults,setMlResults] = useState('No Results')
 
@@ -11,7 +19,7 @@ const MainForm = ()=> {
         <Text>Here goes an input </Text> 
         <TouchableOpacity 
           style={styles.button}
-          onPress={()=>{setMlResults('These are the ML Results')}}  
+          onPress={()=>{setMlResults(getResultStack())}}  
         >
           <Text style={styles.buttonText}>GO</Text>
         </TouchableOpacity>
