@@ -1,15 +1,32 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity, FlatList } from 'react-native'
 import { Card , FAB} from 'react-native-paper'
 
 let resultText = ``
 
 const MainForm = ()=> {
-  const mockListData = [
-    {id:1, title:`Title 1`, body:`body text one`},
-    {id:2, title:`Title 2`, body:`body text two`},
-    {id:3, title:`Titlw 3`, body:`body text three`}
-  ]
+  const [mlResults,setMlResults] = useState('No Results')
+  
+  const[mockListData,SetMockListData]= useState([])
+
+  const useEffect =(
+    ()=>{
+      fetch('http://192.168.0.110:3000/sample',
+        {
+          method:'GET'
+        })
+      .then( resp=> resp.json())
+      .then(article =>{
+        console.log(article)
+        setMlResults(article)
+      })
+    },[]) 
+
+  // const mockListData = [
+  //   {id:1, title:`Title 1`, body:`body text one`},
+  //   {id:2, title:`Title 2`, body:`body text two`},
+  //   {id:3, title:`Titlw 3`, body:`body text three`}
+  // ]
 
   const renderListData = item =>{
     return (
@@ -26,7 +43,6 @@ const MainForm = ()=> {
     return resultText
   }
 
-  const [mlResults,setMlResults] = useState('No Results')
 
   return (
     <View style={{flex:1}}>
