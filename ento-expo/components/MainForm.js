@@ -31,8 +31,8 @@ const MainForm = ()=> {
   return (
     <View style={{flex:1}}>
     {/*<View style={styles.mainFormContainer}>*/}
-        <Text>This is the Form</Text>
-        <Text>Here goes an input </Text> 
+
+        <Text style={{margin:10}}>Here goes an input </Text> 
         <TouchableOpacity 
           style={styles.button}
           onPress={()=>{
@@ -84,6 +84,9 @@ const styles = StyleSheet.create({
     margin:25,
     backgroundColor: "#f70776",
     padding: 20,
+    borderTopLeftRadius:0,
+    borderTopRightRadius:0,
+    borderButtonLeftRadius:0,
     borderRadius: 50
   },
   buttonText: {
