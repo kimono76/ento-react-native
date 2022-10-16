@@ -1,7 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MainForm from './components/MainForm'
 import Heading from "./components/Heading";
+
+// for installing React Native Paper
+
+//yarn add react-native-paper@5.0.0-rc.6
 
 export default function App() {
   return (

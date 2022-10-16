@@ -7,7 +7,7 @@ const MainForm = ()=> {
 
 
   const getResultStack = ()=>{
-    resultText += `\n This is the result text \n`
+    resultText += `\n This is one row of the result text \n`
     return resultText
   }
 
