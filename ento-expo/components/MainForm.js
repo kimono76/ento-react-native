@@ -5,39 +5,39 @@ import { Card , FAB} from 'react-native-paper'
 let resultText = ``
 
 const MainForm = ()=> {
-  const [mlResults,setMlResults] = useState('No Results')
   
   const[mockListData,SetMockListData]= useState([])
-
+  
   useEffect(
     ()=>{
       fetch('http://192.168.0.110:3000/sample',
-        {
-          method:'GET'
-        })
+      {
+        method:'GET'
+      })
       .then( resp=> resp.json())
       .then(article =>{
         console.log(article['ents'])
         SetMockListData(article['ents'])
       })
     },[]) 
-
-  // const mockListData = [
-  //   {id:1, title:`Title 1`, body:`body text one`},
-  //   {id:2, title:`Title 2`, body:`body text two`},
-  //   {id:3, title:`Titlw 3`, body:`body text three`}
+    
+    const renderListData = item =>{
+      return (
+        <Card style={styles.card}>
+          <Text>{item.ent}</Text>
+          <Text>{item.label}</Text>
+        </Card>
+      )
+    }
+    
+    const [mlResults,setMlResults] = useState('No Results')
+    
+    // const mockListData = [
+      //   {id:1, title:`Title 1`, body:`body text one`},
+      //   {id:2, title:`Title 2`, body:`body text two`},
+      //   {id:3, title:`Titlw 3`, body:`body text three`}
   // ]
 
-  const renderListData = item =>{
-    //console.log(item)
-
-    return (
-      <Card style={styles.card}>
-        <Text>{item.ent}</Text>
-        <Text>{item.label}</Text>
-      </Card>
-    )
-  }
 
   const getResultStack = ()=>{
     resultText += `\n This is one row of the result text \n`
