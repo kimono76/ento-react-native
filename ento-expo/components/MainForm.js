@@ -9,7 +9,7 @@ const MainForm = ()=> {
   
   const[mockListData,SetMockListData]= useState([])
 
-  const useEffect =(
+  useEffect(
     ()=>{
       fetch('http://192.168.0.110:3000/sample',
         {
@@ -17,8 +17,8 @@ const MainForm = ()=> {
         })
       .then( resp=> resp.json())
       .then(article =>{
-        console.log(article)
-        setMlResults(article)
+        console.log(article['ents'])
+        SetMockListData(article['ents'])
       })
     },[]) 
 
@@ -29,10 +29,12 @@ const MainForm = ()=> {
   // ]
 
   const renderListData = item =>{
+    //console.log(item)
+
     return (
       <Card style={styles.card}>
-        <Text>{item.title}</Text>
-        <Text>{item.body}</Text>
+        <Text>{item.ent}</Text>
+        <Text>{item.label}</Text>
       </Card>
     )
   }
@@ -52,6 +54,7 @@ const MainForm = ()=> {
         <TouchableOpacity 
           style={styles.button}
           onPress={()=>{
+            // SetMockListData()
             setMlResults(getResultStack())
             
             }
@@ -72,7 +75,7 @@ const MainForm = ()=> {
             return renderListData(item)
             }
           }
-          keyExtractor={item=>`${item.id}`}
+          keyExtractor={item=>`${item.ent}`}
         />
 {/* 
         <FAB 
