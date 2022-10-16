@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import MainForm from './components/MainForm'
 import Heading from "./components/Heading";
+import Constants from 'expo-constants'
 
 // for installing React Native Paper
 
@@ -20,8 +21,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: Constants.statusBarHeight, 
+    backgroundColor: '#eddfdf',
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // paddingTop: 50,
   },
 });
