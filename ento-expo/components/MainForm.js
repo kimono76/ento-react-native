@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity, FlatList } from 'react-native'
-import { Card } from 'react-native-paper'
+import { Card , FAB} from 'react-native-paper'
 
 let resultText = ``
 
@@ -29,7 +29,8 @@ const MainForm = ()=> {
   const [mlResults,setMlResults] = useState('No Results')
 
   return (
-    <View style={styles.mainFormContainer}>
+    <View style={{flex:1}}>
+    {/*<View style={styles.mainFormContainer}>*/}
         <Text>This is the Form</Text>
         <Text>Here goes an input </Text> 
         <TouchableOpacity 
@@ -57,6 +58,14 @@ const MainForm = ()=> {
           }
           keyExtractor={item=>`${item.id}`}
         />
+{/* 
+        <FAB 
+          style={styles.fab}
+          small={false}
+          icon="plus"
+          theme={{colors:{accent:"red"}}}
+          onpress={()=> console.log(`\n BUTTON PLUS PRESSED \n`)}
+        /> */}
     </View>
   )
 }
@@ -64,10 +73,14 @@ const MainForm = ()=> {
 const styles = StyleSheet.create({
   mainFormContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   button: {
+    width:100,
+    position:"relative",
+    alignItems: 'center',
+    justifyContent: 'center',
     margin:25,
     backgroundColor: "#f70776",
     padding: 20,
@@ -80,6 +93,17 @@ const styles = StyleSheet.create({
   card:{
     margin:10,
     padding:10,
+  },
+  fab:{
+    // position:'absolute',
+    // position:'relative',
+    margin:16,
+    right:0,
+    button:0,
+    // left:220,
+    //borderRadius:50,
+    width:60
+    // top:400,
   }
 });
 
